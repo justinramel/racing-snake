@@ -1,0 +1,10 @@
+.jumbotron {
+  background-image: url('../img/soller.jpg');
+  background-size: cover;
+}
+.header-text {
+  padding-left: 10%;
+  margin-top: 0;
+  text-shadow: 0px 0px 2px #000;
+  color: white !important;
+}
