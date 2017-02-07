@@ -47,18 +47,7 @@
           </div>
         </form>
       </div>
-      <div class="col-lg-4">
-        <h3>Your ideal weight is between</h3>
-        <div class="panel panel-default">
-          <table class="table table-striped text-center narrow">
-            <tbody>
-              <tr> <td><h4>{{ rider.minPounds | number }} lbs - {{ rider.maxPounds | number }} lbs</h4></h4></td> </tr>
-              <tr> <td><h4>{{ rider.minKg | number }} Kg - {{ rider.maxKg | number }} Kg</h4></td> </tr>
-              <tr> <td><h4>{{ rider.minStone }} - {{ rider.maxStone }}</h4></td> </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <Weight :rider=rider></Weight>
     </div>
 
     <div class="row">
@@ -76,16 +65,24 @@
 
 <script>
 import calculator from '../calculator'
+import IOdometer from 'vue-odometer'
+import Weight from './Weight'
 
 export default {
+  components: {
+    IOdometer,
+    Weight
+  },
   data () {
     return {
-      inches: 70
+      inches: 70,
+      defaultFormat: '(,ddd).dd'
     }
   },
   computed: {
     rider: function () {
-      return calculator({inches: this.inches})
+      const c = calculator({inches: this.inches})
+      return c
     }
   },
   filters: {
@@ -93,10 +90,17 @@ export default {
       if (!value) return ''
       return value.toFixed(2)
     }
+  },
+  mounted () {
+
   }
 }
 
 </script>
 
 <style scoped>
+  .odometer {
+    font-size: 2em;
+    margin: 0;
+  }
 </style>

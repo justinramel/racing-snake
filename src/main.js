@@ -10,6 +10,6 @@ new Vue({
   components: { App }
 })
 
-if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator && process.env.DEBUG_MODE) {
   navigator.serviceWorker.register('/service-worker.js')
 }
