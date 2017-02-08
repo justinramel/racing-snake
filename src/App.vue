@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="jumbotron">
-      <h1 class="header-text">Racing Snake</h1>
-      <h2 class="header-text">Calculate your ideal cycling weight</h2>
+      <h1 class="header-text">Weight Weenie</h1>
+      <h2 class="header-text">Calculate your cycling race weight</h2>
     </div>
 
     <div class="container">
