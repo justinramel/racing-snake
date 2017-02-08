@@ -33,13 +33,9 @@
         <div class="panel panel-default">
           <div class="panel-heading text-center">Race weight</div>
           <div class="panel-body text-center">
-            <h4 class="odometer">
-              {{ rider.minStone }}
-            </h4>
+            <h2>{{ rider.minStone }}</h2>
             <h4>to</h4>
-            <h4 class="odometer">
-              {{ rider.maxStone }}
-            </h4>
+            <h2>{{ rider.maxStone }}</h2>
           </div>
         </div>
       </tab>
