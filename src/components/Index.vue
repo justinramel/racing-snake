@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     calculate: function (data) {
-      console.log(data)
       this.inches = data.inches
       this.male = data.male
     }
