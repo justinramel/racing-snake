@@ -32,10 +32,10 @@
           <div class="row text-center">
             <h4>Sex</h4>
             <div class="col-xs-offset-2 col-xs-4">
-              <radio v-model="sex" checked-value="M">Male</radio>
+              <radio v-model="male" checked-value="true">Male</radio>
             </div>
             <div class="col-xs-4">
-              <radio v-model="sex" checked-value="F">Female</radio>
+              <radio v-model="male" checked-value="false">Female</radio>
             </div>
           </div>
           <div class="row">
@@ -65,16 +65,15 @@
       return {
         footValue: '60',
         inchValue: '10',
-        sex: 'M'
+        male: 'true'
       }
     },
     methods: {
       calculate: function () {
         const inches = parseInt(this.footValue) + parseInt(this.inchValue)
-        this.$emit('calculate', {
-          inches,
-          sex: this.sex
-        })
+        const male = (this.male === 'true')
+        this.$emit('calculate', {inches: 0, male})
+        setTimeout(() => this.$emit('calculate', {inches, male}), 0)
       }
     }
   }

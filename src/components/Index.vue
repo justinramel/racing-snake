@@ -28,18 +28,20 @@ export default {
   },
   data () {
     return {
-      inches: 0
+      inches: 0,
+      male: true
     }
   },
   computed: {
     rider: function () {
-      return calculator({inches: this.inches})
+      return calculator({inches: this.inches, male: this.male})
     }
   },
   methods: {
     calculate: function (data) {
       console.log(data)
       this.inches = data.inches
+      this.male = data.male
     }
   },
   filters: {

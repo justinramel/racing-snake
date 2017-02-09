@@ -1,6 +1,7 @@
-function calculator (input = {inches: 70}) {
-  const minPounds = calcMinPounds(input.inches)
-  const maxPounds = calcMaxPounds(input.inches)
+function calculator (input) {
+  if (input.male === undefined) input.male = true
+  const minPounds = calcMinPounds(input.inches, input.male)
+  const maxPounds = calcMaxPounds(input.inches, input.male)
 
   return {
     height: toFeet(input.inches),
@@ -19,24 +20,27 @@ function toFeet (inches) {
   return `${feet} Foot ${inch} Inches`
 }
 
-function calcMinPounds (inches) {
-  return inches * 2.1
+function calcMinPounds (inches, male) {
+  return male ? inches * 2.1 : inches * 1.9
 }
 
-function calcMaxPounds (inches) {
-  return inches * 2.4
+function calcMaxPounds (inches, male) {
+  return male ? inches * 2.4 : inches * 2.2
 }
 
 function toKg (pounds) {
   return pounds / 2.2046226218
 }
 
-function toStone (pounds) {
-  let remaining = pounds
-  const stone = Math.floor(pounds / 14)
+function toStone (lbs) {
+  let remaining = lbs
+  const stone = Math.floor(lbs / 14)
   remaining -= (stone * 14)
-  const ounces = Math.floor(remaining % 14)
-  return `${stone} stone, ${ounces} lbs`
+  const pounds = Math.floor(remaining % 14)
+  return {
+    stone,
+    pounds
+  }
 }
 
 export default calculator

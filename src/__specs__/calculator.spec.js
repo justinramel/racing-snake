@@ -15,7 +15,7 @@ describe('height calculator', () => {
   })
 })
 
-describe('min pounds calculator', () => {
+describe('male min pounds calculator', () => {
   it('calculates for 70 inches', () => {
     const result = calculator({inches: 70})
     expect(result.minPounds).toEqual(147)
@@ -30,7 +30,14 @@ describe('min pounds calculator', () => {
   })
 })
 
-describe('max pounds calculator', () => {
+describe('female min pounds calculator', () => {
+  it('calculates for 65 inches', () => {
+    const result = calculator({inches: 65, male: false})
+    expect(result.minPounds).toEqual(123.5)
+  })
+})
+
+describe('male max pounds calculator', () => {
   it('calculates for 70 inches', () => {
     const result = calculator({inches: 70})
     expect(result.maxPounds).toEqual(168)
@@ -44,6 +51,14 @@ describe('max pounds calculator', () => {
     expect(result.maxPounds).toEqual(177.6)
   })
 })
+
+describe('female max pounds calculator', () => {
+  it('calculates for 65 inches', () => {
+    const result = calculator({inches: 65, male: false})
+    expect(result.maxPounds).toEqual(143)
+  })
+})
+
 
 describe('min kg calculator', () => {
   it('calculates for 70 inches', () => {
@@ -78,29 +93,29 @@ describe('max kg calculator', () => {
 describe('min stone calculator', () => {
   it('calculates for 70 inches', () => {
     const result = calculator({inches: 70})
-    expect(result.minStone).toEqual('10 stone, 7 lbs')
+    expect(result.minStone).toEqual({stone: 10, pounds: 7})
   })
   it('calculates for 71 inches', () => {
     const result = calculator({inches: 71})
-    expect(result.minStone).toEqual('10 stone, 9 lbs')
+    expect(result.minStone).toEqual({stone: 10, pounds: 9})
   })
   it('calculates for 74 inches', () => {
     const result = calculator({inches: 74})
-    expect(result.minStone).toEqual('11 stone, 1 lbs')
+    expect(result.minStone).toEqual({stone: 11, pounds: 1})
   })
 })
 
 describe('max stone calculator', () => {
   it('calculates for 70 inches', () => {
     const result = calculator({inches: 70})
-    expect(result.maxStone).toEqual('12 stone, 0 lbs')
+    expect(result.maxStone).toEqual({stone: 12, pounds: 0})
   })
   it('calculates for 71 inches', () => {
     const result = calculator({inches: 71})
-    expect(result.maxStone).toEqual('12 stone, 2 lbs')
+    expect(result.maxStone).toEqual({stone: 12, pounds: 2})
   })
   it('calculates for 74 inches', () => {
     const result = calculator({inches: 74})
-    expect(result.maxStone).toEqual('12 stone, 9 lbs')
+    expect(result.maxStone).toEqual({stone: 12, pounds: 9})
   })
 })

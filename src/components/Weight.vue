@@ -1,16 +1,16 @@
 <template>
   <div>
-    <tabs nav-style="pills">
+    <tabs>
       <tab header="lbs">
         <div class="panel panel-default">
           <div class="panel-heading text-center">Race weight</div>
           <div class="panel-body text-center">
             <h4>
-              <i-odometer :value=rider.minPounds :format=defaultFormat></i-odometer> lbs
+              <i-odometer :value=rider.minPounds></i-odometer> lbs
             </h4>
             <h4>to</h4>
             <h4>
-              <i-odometer :value=rider.maxPounds :format=defaultFormat></i-odometer> lbs
+              <i-odometer :value=rider.maxPounds></i-odometer> lbs
             </h4>
           </div>
         </div>
@@ -20,11 +20,11 @@
           <div class="panel-heading text-center">Race weight</div>
           <div class="panel-body text-center">
             <h4>
-              <i-odometer :value=rider.minKg :format=defaultFormat></i-odometer> Kg
+              <i-odometer :value=rider.minKg></i-odometer> Kg
             </h4>
             <h4>to</h4>
             <h4>
-              <i-odometer :value=rider.maxKg :format=defaultFormat></i-odometer> Kg
+              <i-odometer :value=rider.maxKg></i-odometer> Kg
             </h4>
           </div>
         </div>
@@ -33,9 +33,15 @@
         <div class="panel panel-default">
           <div class="panel-heading text-center">Race weight</div>
           <div class="panel-body text-center">
-            <h2>{{ rider.minStone }}</h2>
+            <h4>
+              <i-odometer :value=rider.minStone.stone></i-odometer> St
+              <i-odometer :value=rider.minStone.pounds></i-odometer> lbs
+            </h4>
             <h4>to</h4>
-            <h2>{{ rider.maxStone }}</h2>
+            <h4>
+              <i-odometer :value=rider.maxStone.stone></i-odometer> St
+              <i-odometer :value=rider.maxStone.pounds></i-odometer> lbs
+            </h4>
           </div>
         </div>
       </tab>
@@ -55,11 +61,6 @@
       IOdometer,
       tabs,
       tab
-    },
-    data () {
-      return {
-        defaultFormat: '(,ddd).dd'
-      }
     }
   }
 
