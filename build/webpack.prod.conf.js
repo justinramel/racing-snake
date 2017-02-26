@@ -78,7 +78,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new SWPrecacheWebpackPlugin(
       {
-        cacheId: 'racing-snake'
+        cacheId: 'weight-weenie'
       }
     )
   ]

@@ -1,4 +1,4 @@
-# racing-snake
+# weight-weenie
 
 > Ideal cycling weight calculator
 
